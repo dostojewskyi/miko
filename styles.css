@@ -1,0 +1,313 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Libre Baskerville', serif;
+    background-color: #EBDFD1;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+.container {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+input {
+    padding: 8px;
+    font-size: 16px;
+    width: 200px;
+    margin: 10px 0;
+    background: #CDAC8F;
+    border: none;             /* Kein Rahmen */
+    box-shadow: none;         /* Kein Schatten */
+    outline: none;            /* Kein Fokus-Ring beim Klicken */
+    border-radius: 0;         /* Ecken nicht abgerundet (optional) */
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;             /* Kein Rahmen */
+    box-shadow: none;         /* Kein Schatten */
+    outline: none;            /* Kein Fokus-Ring beim Klicken */
+    border-radius: 0;         /* Ecken nicht abgerundet (optional) */
+    background: #CDAC8F;
+}
+header {
+    text-align: center;
+    padding: 3em 1em 1em;
+    /*color: #E4CE7B; */
+    color: #333;
+}
+header h1 {
+    /*font-family: 'Great Vibes', cursive;*/
+    font-family: "Santorini", cursive;
+    font-size: 4em;
+    font-weight: 300;
+    line-height: 1.1;
+    margin: 5rem;
+}
+header h2 {
+    font-family: "Santorini", cursive;
+    font-size: 3em;
+    font-weight: 300;
+    margin: 0rem;
+}
+header p {
+    font-size: 1em;
+    color: #666;
+}
+.centered-block {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%; /* Or any specific width less than 100% */
+    text-align: center; /* To center the text *inside* the block */
+}
+
+.hero-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    object-fit: cover;
+    display: block;
+    margin: 2em auto 1em;
+}
+
+section {
+    max-width: 700px;
+    margin: 2em auto;
+    padding: 0 1em;
+}
+.section-title {
+    font-family: "Esthentic", cursive;
+    font-size: 2em;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.timeline-date {
+    font-family: "Santorini", cursive;
+    font-weight: 300;
+    font-size: 1.5em;
+    /*font-weight: bold;*/
+    margin-bottom: 2rem;
+    color: #333;
+    text-align: center;
+}
+.timeline-item {
+    font-family: 'Libre Baskerville', serif;
+    display: grid;
+    grid-template-columns: 40px 80px 1fr;
+    align-items: center; /* start*/
+    position: relative;
+    margin-bottom: 15px; /* Space between events within a group */
+}
+.timeline-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: black; /* Solid black circle */
+    border-radius: 50%;
+    margin-right: 15px;
+    flex-shrink: 0; /* Prevent bullet from shrinking */
+    z-index: 1; /* Ensure bullet is above the line */
+}
+.timeline-left {
+    font-family: 'Libre Baskerville', serif;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.timeline-time {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 500;
+    font-size: 1rem;
+    padding-top: 2px;
+}
+.timeline-content {
+    font-size: 1rem;
+    font-family: 'Libre Baskerville', serif;
+    padding-left: 0.5rem;
+}
+.timeline-group {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+.timeline {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0;
+}
+.timeline-line {
+    flex-grow: 1;
+    width: 2px;
+    background-color: black;
+    margin-top: 4px;
+}
+.timeline-line.invisible {
+    background-color: transparent;
+}
+.timeline-event-text {
+    font-size: 1.5em;
+    color: #555;
+    margin: 0;
+}
+/* Line connecting events within a group */
+.timeline-group .timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 11px; /* Adjust to align with the center of the bullet */
+    top: 16px; /* Start below the current bullet */
+    bottom: -54px; /* Extend below to connect to the next bullet's top */
+    width: 2px;
+    background-color: black;
+    z-index: 0; /* Place behind the bullets */
+}
+/* Adjust line for the last item in a group if needed, though usually not */
+.timeline-group .timeline-item:last-child::after {
+    display: none; /* No line after the last event in a group */
+}
+ul.timeline {
+    list-style: none;
+    padding: 0;
+    border-left: 2px solid #ccc;
+    margin-left: 1.2em;
+}
+ul.timeline li {
+    position: relative;
+    padding: 1em 1em 1em 1.5em;
+}
+ul.timeline li::before {
+    content: "•";
+    position: absolute;
+    left: -0.9em;
+    top: 1.1em;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.wedding-party-container {
+    max-width: 1400px; /* Overall width, similar to the image example */
+    margin: 0 auto; /* Center the entire container */
+    padding: 80px 40px; /* Vertical and horizontal padding for the whole section */
+    text-align: center; /* Center main header content */
+}
+/* Header Styles */
+.wedding-header h1 {
+    font-family: 'Great Vibes', cursive; /* Example script font */
+    font-size: 3.5em; /* Large size for the main title */
+    margin-bottom: 10px;
+    color: #282828;
+}
+.wedding-header p {
+    font-size: 1.1em;
+    max-width: 800px; /* Limit subtitle width for readability */
+    margin: 0 auto 60px auto; /* Center subtitle and add space below */
+    line-height: 1.4;
+}
+
+/* Person Cards Wrapper (Flexbox for horizontal layout) */
+.person-cards-wrapper {
+    display: flex;
+    justify-content: center; /* Center the cards horizontally */
+    gap: 80px; /* Space between the person cards */
+    overflow-x: auto; /* Allows horizontal scrolling */
+    padding-bottom: 20px; /* Add some padding for the scrollbar if it appears */
+    scroll-snap-type: x mandatory; /* Optional: for smoother scrolling between items */
+}
+/* Individual Person Card Styles */
+.person-card {
+    flex-shrink: 0; /* Prevents cards from shrinking by default */
+    flex-basis: 350px; /* Base width for each card. Adjust as needed. */
+    max-width: 400px; /* Maximum width to prevent cards from becoming too wide */
+    text-align: center;
+    margin-bottom: 40px; /* Space below each card */
+    scroll-snap-align: center; /* Optional: for smoother scrolling between items */
+}
+.person-image-container {
+    /* GEÄNDERT: Kleinere Bildgröße */
+    width: 150px; /* Neuer Durchmesser für das Kreisbild */
+    height: 150px;
+    margin: 0 auto 20px auto; /* Center image and add space below */
+    border-radius: 50%; /* Makes the container circular */
+    overflow: hidden; /* Hides parts of the image outside the circle */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+.person-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the circular area without distortion */
+    display: block; /* Removes extra space below image */
+}
+.person-name {
+    font-family: 'Great Vibes', cursive; /* Script font for names */
+    font-size: 1.5em; /* Size for names */
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #282828;
+}
+.person-description {
+    font-size: 1em;
+    line-height: 1.5;
+    max-width: 300px; /* Limit description width for readability */
+    margin: 0 auto; /* Center description text within its card */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .wedding-party-container {
+        padding: 60px 20px;
+    }
+
+    .wedding-header h1 {
+        font-size: 2.8em;
+    }
+
+    .wedding-header p {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+
+    .person-cards-wrapper {
+        gap: 40px; /* Adjust gap for potentially smaller cards */
+    }
+
+    .person-card {
+        max-width: 300px; /* Adjust max width for stacked cards */
+    }
+
+    .person-image-container {
+        /* GEÄNDERT: Noch kleinere Bilder auf sehr kleinen Bildschirmen */
+        width: 100px;
+        height: 100px;
+    }
+}
+@font-face {
+    font-family: 'Esthentic';
+    src: url('fonts/EsthenticDEMO.woff2') format('woff2'),
+    url('fonts/EsthenticDEMO.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Santorini';
+    src: url('fonts/SantoriniRegular.woff2') format('woff2'),
+    url('fonts/SantoriniRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+footer {
+    text-align: center;
+    padding: 2em 1em;
+    font-size: 0.9em;
+    background: #e9e6e0;
+}
+.hidden { display: none; }
