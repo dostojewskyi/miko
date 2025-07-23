@@ -216,6 +216,7 @@ ul.timeline li::before {
 /* Person Cards Wrapper (Flexbox for horizontal layout) */
 .person-cards-wrapper {
     display: flex;
+    /*flex-wrap: wrap; */
     justify-content: center; /* Center the cards horizontally */
     gap: 80px; /* Space between the person cards */
     overflow-x: auto; /* Allows horizontal scrolling */
@@ -260,6 +261,7 @@ ul.timeline li::before {
     margin: 0 auto; /* Center description text within its card */
 }
 
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .wedding-party-container {
@@ -287,6 +289,28 @@ ul.timeline li::before {
         /* GEÄNDERT: Noch kleinere Bilder auf sehr kleinen Bildschirmen */
         width: 100px;
         height: 100px;
+    }
+}
+@media (max-width: 600px) { /* Or 576px, 480px, whatever you define as "mobile like iPhone" */
+    .person-cards-wrapper {
+        flex-direction: column; /* Stack them vertically */
+        align-items: center; /* Center them when stacked */
+    }
+
+    .person-card {
+        width: 90%; /* Occupy most of the width on mobile */
+        max-width: 350px; /* Prevent cards from getting too wide */
+        margin-bottom: 20px; /* Add space between stacked cards */
+    }
+}
+
+/* Optional: Further refine for very small screens if needed */
+@media (max-width: 400px) {
+    .person-card {
+        padding: 15px;
+    }
+    .person-name {
+        font-size: 1.5em;
     }
 }
 @font-face {
