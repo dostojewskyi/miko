@@ -225,15 +225,15 @@ ul.timeline li::before {
 }
 /* Individual Person Card Styles */
 .person-card {
-    flex-shrink: 0; /* Prevents cards from shrinking by default */
+    flex-shrink: 1; /* Prevents cards from shrinking by default */
     flex-basis: 350px; /* Base width for each card. Adjust as needed. */
     max-width: 400px; /* Maximum width to prevent cards from becoming too wide */
     text-align: center;
     margin-bottom: 40px; /* Space below each card */
     scroll-snap-align: center; /* Optional: for smoother scrolling between items */
+
 }
 .person-image-container {
-    /* GEÄNDERT: Kleinere Bildgröße */
     width: 150px; /* Neuer Durchmesser für das Kreisbild */
     height: 150px;
     margin: 0 auto 20px auto; /* Center image and add space below */
@@ -291,7 +291,7 @@ ul.timeline li::before {
         height: 100px;
     }
 }
-@media (max-width: 600px) { /* Or 576px, 480px, whatever you define as "mobile like iPhone" */
+@media (max-width: 576px) { /* Or 576px, 480px, whatever you define as "mobile like iPhone" */
     .person-cards-wrapper {
         flex-direction: column; /* Stack them vertically */
         align-items: center; /* Center them when stacked */
