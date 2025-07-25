@@ -63,7 +63,7 @@ header p {
 .centered-block {
     margin-left: auto;
     margin-right: auto;
-    width: 50%; /* Or any specific width less than 100% */
+    width: 80%; /* Or any specific width less than 100% */
     text-align: center; /* To center the text *inside* the block */
 }
 
@@ -260,7 +260,6 @@ ul.timeline li::before {
     max-width: 300px; /* Limit description width for readability */
     margin: 0 auto; /* Center description text within its card */
 }
-
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {

@@ -1,5 +1,5 @@
 const params = new URLSearchParams(window.location.search);
-const guestGroup = params.get('guest');
+const guestGroup = params.get('gst');
 
 if (guestGroup === 'onsite') {
     document.getElementById('onsite').classList.remove('hidden');

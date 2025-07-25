@@ -26,7 +26,7 @@
   // If the user went through landing.html, redirect them
   const group = localStorage.getItem('group');
   if (group) {
-    window.location.href = `main.html?guest=${group}`; //
+    window.location.href = `main.html?gst=${group}`; //
   }
 
   function submitName() {
@@ -38,17 +38,44 @@
       return;
     }
 
-    const group1 = ['niko arras', 'marie gnott', 'jens paar', 'seline paar'];
-    const group2 = ['björn dornbusch'];
+    const groups = {
+      // Tovari Groups
+      TVRi: ['tvr i', 'jens paar', 'selina paar'], // ToVaRi-internal : close f&f is invited to Tovari
+      TVRp: ['tvr p'], // ToVaRi-pay : people who are assigned to Tovari
+      TVRc: ['tvr c'], // ToVaRi-camper : people who are assigned to Tovari as camper
+      TVRa: ['tvr a', 'marie gnott', 'niko arras'], // ToVaRi-accept : people accepted RSVP
 
-    let group = 'none';
-    if (group1.includes(name)) group = 'group1';
-    else if (group2.includes(name)) group = 'group2';
+      // Sopra Groups
+      SOPp: ['sop p'], // SOPra-pay : people who are assigned to Sopra
+      SOPa: ['sop a'], // SOPra-accept : people confirmed RSVP
 
-    localStorage.setItem('name', name);
-    localStorage.setItem('group', group);
+      // Cardeto Groups
+      CDOp: ['cdo p'], // CarDetO-pay : people who are assigned to Cardeto
+      CDOa: ['cdo a'], // CarDetO-accept : people confirmed RSVP
 
-    window.location.href = `main.html?guest=${group}`;
+      // Self Booker Groups
+      SBK: ['sbk n', 'björn dornbusch'], // SelfBooKer : people who are not assigned and need to self book
+      SBKie: ['sbk ie'], // SelfBooKer-internal-mezzo : people who have self booked on reserved MEZZO
+      SBKim: ['sbk im'], // SelfBooKer-internal-mezzo : people who have self booked on reserved MERIDIANA
+      SBKic: ['sbk ic'], // SelfBooKer-internal-mezzo : people who have self booked on reserved CIELO
+      SBKe: ['sbk e'], // SelfBooKer-external : people who have self booked on own accommodation
+
+    };
+
+    function getGroup(name) {
+      for (const [groupName, names] of Object.entries(groups)) {
+        if (names.includes(name)) return groupName;
+      }
+      return 'none';
+    }
+
+    const group = getGroup(name);
+
+    if (group !== 'none') {
+      localStorage.setItem('name', name);
+      localStorage.setItem('group', group);
+      window.location.href = `main.html?gst=${group}`;
+    }
   }
 </script>
 </html>
