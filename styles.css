@@ -3,9 +3,9 @@ html {
 }
 
 body {
-    font-family: 'Libre Baskerville', serif;
-    background-color: #EBDFD1;
-    color: #333;
+    font-family: 'Arapey', serif;
+    background-color: #F5DED6;
+    color: #977A43;
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -40,18 +40,20 @@ header {
     text-align: center;
     padding: 3em 1em 1em;
     /*color: #E4CE7B; */
-    color: #333;
+    color: #977A43;
 }
 header h1 {
     /*font-family: 'Great Vibes', cursive;*/
-    font-family: "Santorini", cursive;
+    font-family: "Arapey", serif;
+    color: #977A43;
     font-size: 4em;
     font-weight: 300;
     line-height: 1.1;
     margin: 5rem;
 }
 header h2 {
-    font-family: "Santorini", cursive;
+    font-family: "Arapey", serif;
+    color: #977A43;
     font-size: 3em;
     font-weight: 300;
     margin: 0rem;
@@ -82,7 +84,8 @@ section {
     padding: 0 1em;
 }
 .section-title {
-    font-family: "Esthentic", cursive;
+    font-family: "Arapey", serif;
+    color: #977A43;
     font-size: 2em;
     font-weight: 300;
     text-align: center;
@@ -90,7 +93,8 @@ section {
 }
 
 .timeline-date {
-    font-family: "Santorini", cursive;
+    font-family: "Arapey", serif;
+    color: #977A43;
     font-weight: 300;
     font-size: 1.5em;
     /*font-weight: bold;*/
@@ -99,7 +103,8 @@ section {
     text-align: center;
 }
 .timeline-item {
-    font-family: 'Libre Baskerville', serif;
+    font-family: 'Arapey', serif;
+    color: #977A43;
     display: grid;
     grid-template-columns: 40px 80px 1fr;
     align-items: center; /* start*/
@@ -116,21 +121,24 @@ section {
     z-index: 1; /* Ensure bullet is above the line */
 }
 .timeline-left {
-    font-family: 'Libre Baskerville', serif;
+    font-family: 'Arapey', serif;
+    color: #977A43;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .timeline-time {
-    font-family: 'Libre Baskerville', serif;
+    font-family: 'Arapey', serif;
+    color: #977A43;
     font-weight: 500;
     font-size: 1rem;
     padding-top: 2px;
 }
 .timeline-content {
     font-size: 1rem;
-    font-family: 'Libre Baskerville', serif;
+    font-family: 'Arapey', serif;
+    color: #977A43;
     padding-left: 0.5rem;
 }
 .timeline-group {
@@ -201,10 +209,10 @@ ul.timeline li::before {
 }
 /* Header Styles */
 .wedding-header h1 {
-    font-family: 'Great Vibes', cursive; /* Example script font */
+    font-family: 'Arapey', serif; /* Example script font */
+    color: #977A43;
     font-size: 3.5em; /* Large size for the main title */
     margin-bottom: 10px;
-    color: #282828;
 }
 .wedding-header p {
     font-size: 1.1em;
@@ -248,17 +256,91 @@ ul.timeline li::before {
     display: block; /* Removes extra space below image */
 }
 .person-name {
-    font-family: 'Great Vibes', cursive; /* Script font for names */
+    font-family: 'Arapey', serif; /* Script font for names */
     font-size: 1.5em; /* Size for names */
     margin-top: 0;
     margin-bottom: 10px;
-    color: #282828;
+    color: #977A43;
 }
 .person-description {
     font-size: 1em;
     line-height: 1.5;
     max-width: 300px; /* Limit description width for readability */
     margin: 0 auto; /* Center description text within its card */
+}
+
+.corner-rgt-img {
+    position: fixed;
+    top: 1px;
+    right: 1px;
+    width: 200px;   /* Größe anpassen */
+    height: auto;  /* behält Seitenverhältnis */
+    z-index: 1000; /* liegt über anderem Inhalt */
+}
+
+.corner-lft-img {
+    position: fixed;
+    bottom: 1px;
+    left: 1px;
+    width: 200px;   /* Größe anpassen */
+    height: auto;  /* behält Seitenverhältnis */
+    z-index: 1000; /* liegt über anderem Inhalt */
+}
+
+.bottom-left {
+    text-align: left;   /* aligns image left */
+    margin: 20px;       /* some spacing */
+}
+
+.bottom-left img {
+    width: 200px;       /* scale size here */
+    height: auto;
+}
+
+.page-footer {
+    display: flex;
+    justify-content: center;   /* Text in der Mitte */
+    align-items: flex-end;     /* alles unten ausrichten */
+    padding: 20px;
+    position: relative;        /* wichtig für das absolute Bild */
+}
+
+.footer-left {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+}
+
+.footer-left img {
+    width: 200px;   /* Größe anpassen */
+    height: auto;
+}
+
+.footer-center {
+    text-align: center;
+}
+
+.page-header {
+    display: flex;
+    justify-content: center;   /* Text zentriert */
+    align-items: flex-start;   /* alles oben ausrichten */
+    padding: 20px;
+    position: relative;        /* damit absolute Positionierungen möglich sind */
+}
+
+.header-right {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.header-right img {
+    width: 200px;   /* Größe anpassen */
+    height: auto;
+}
+
+.header-center {
+    text-align: center;
 }
 
 /* Responsive Adjustments */
@@ -331,6 +413,6 @@ footer {
     text-align: center;
     padding: 2em 1em;
     font-size: 0.9em;
-    background: #e9e6e0;
+    background: #F5DED6;
 }
 .hidden { display: none; }
