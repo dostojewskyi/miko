@@ -78,6 +78,16 @@ header p {
     margin: 2em auto 1em;
 }
 
+.chapter-image {
+    text-align: center; /* Bild zentrieren */
+    margin: 40px 0;     /* Abstand nach oben/unten */
+}
+
+.chapter-image img {
+    width: 200px;  /* Größe anpassen */
+    height: auto;
+}
+
 section {
     max-width: 700px;
     margin: 2em auto;
@@ -307,8 +317,8 @@ ul.timeline li::before {
 
 .footer-left {
     position: absolute;
-    left: 20px;
-    bottom: 20px;
+    left: 1px;
+    bottom: 1px;
 }
 
 .footer-left img {
@@ -330,8 +340,8 @@ ul.timeline li::before {
 
 .header-right {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 1px;
+    right: 1px;
 }
 
 .header-right img {
