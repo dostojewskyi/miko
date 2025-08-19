@@ -78,6 +78,10 @@ header p {
     margin: 2em auto 1em;
 }
 
+.spacer {
+    height: 150px;  /* Höhe nach Bedarf anpassen */
+}
+
 .chapter-image {
     text-align: center; /* Bild zentrieren */
     margin: 40px 0;     /* Abstand nach oben/unten */
