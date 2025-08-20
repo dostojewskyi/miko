@@ -10,6 +10,40 @@ body {
     padding: 0;
     line-height: 1.6;
 }
+
+#last-name-container {
+    display: none;
+}
+
+#schedule {
+    position: relative; /* This is the key change. */
+    /* Other styles for your section can go here if needed. */
+}
+
+.error-message {
+    color: #977A43;
+    font-family: 'Arapey', serif;
+    margin-top: 1rem;
+}
+
+.timeline-image-container {
+    position: absolute;
+    top: 50%; /* Positions the top of the image container at the vertical center */
+    right: 0; /* Aligns the image to the far right */
+    transform: translateY(-50%); /* Adjusts the image up by half its height for perfect vertical centering */
+    width: 150px; /* Adjust the width as needed */
+    height: auto;
+    z-index: 0; /* Ensures the image is behind your timeline content if there are any overlaps */
+}
+
+.timeline-image-container img {
+    width: 100px;
+    height: 100%;
+    object-fit: contain; /* Ensures the image scales correctly without distortion */
+    transform: rotate(20deg);
+}
+
+
 .container {
     max-width: 600px;
     margin: auto;
@@ -56,7 +90,7 @@ header h2 {
     color: #977A43;
     font-size: 3em;
     font-weight: 300;
-    margin: 0rem;
+    margin: 5rem;
 }
 header p {
     font-size: 1em;
@@ -106,14 +140,19 @@ section {
     margin-bottom: 1em;
 }
 
+.date-image img {
+    width: 100px;   /* Größe anpassen */
+    height: auto;
+    right: 1px;
+    transform: rotate(20deg);
+}
+
 .timeline-date {
     font-family: "Arapey", serif;
     color: #977A43;
     font-weight: 300;
     font-size: 1.5em;
-    /*font-weight: bold;*/
     margin-bottom: 2rem;
-    color: #333;
     text-align: center;
 }
 .timeline-item {
@@ -128,7 +167,7 @@ section {
 .timeline-bullet {
     width: 10px;
     height: 10px;
-    background-color: black; /* Solid black circle */
+    background-color: whitesmoke; /* Solid black circle */
     border-radius: 50%;
     margin-right: 15px;
     flex-shrink: 0; /* Prevent bullet from shrinking */
@@ -149,12 +188,7 @@ section {
     font-size: 1rem;
     padding-top: 2px;
 }
-.timeline-content {
-    font-size: 1rem;
-    font-family: 'Arapey', serif;
-    color: #977A43;
-    padding-left: 0.5rem;
-}
+
 .timeline-group {
     max-width: 700px;
     margin: 0 auto;
@@ -170,12 +204,14 @@ section {
 .timeline-line {
     flex-grow: 1;
     width: 2px;
-    background-color: black;
+    background-color: whitesmoke;
     margin-top: 4px;
 }
+
 .timeline-line.invisible {
     background-color: transparent;
 }
+
 .timeline-event-text {
     font-size: 1.5em;
     color: #555;
@@ -189,7 +225,7 @@ section {
     top: 16px; /* Start below the current bullet */
     bottom: -54px; /* Extend below to connect to the next bullet's top */
     width: 2px;
-    background-color: black;
+    background-color: whitesmoke;
     z-index: 0; /* Place behind the bullets */
 }
 /* Adjust line for the last item in a group if needed, though usually not */
@@ -355,6 +391,16 @@ ul.timeline li::before {
 
 .header-center {
     text-align: center;
+}
+
+.timeline-content {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Abstand zwischen Text und Bild */
+    font-size: 1rem;
+    font-family: 'Arapey', serif;
+    color: #977A43;
+    padding-left: 0.5rem;
 }
 
 /* Responsive Adjustments */

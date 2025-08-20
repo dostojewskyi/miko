@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mimi & Niko</title>
+  <title>Marie & Nikolai</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arapey">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 <header class="page-header">
   <div class="header-center">
-    <h1>Mimi & Niko</h1>
+    <h1>MARIE & NIKOLAI</h1>
     <h2>wir heiraten.</h2>
   </div>
   <div class="header-right">
@@ -18,13 +18,22 @@
   </div>
 </header>
 <div class="container">
-  <p>Bitte gebe deinen Vornamen...</p>
-  <input type="text" id="vorname" placeholder="Dein Vorname"  />
-  <p>und Nachnamen ein::</p>
-  <input type="text" id="nachname" placeholder="Dein Nachname"  />
+  <p>Bitte gib deinen Vornamen ein.</p>
+  <input type="text" id="vorname" placeholder="Dein Vorname" onkeydown="handleKeyPress(event)" style="color: whitesmoke"/>
+  <div id="last-name-container" style="display: none;">
+    <p>Bitte gib auch auch deinen Nachnamen ein:</p>
+    <input type="text" id="nachname" placeholder="Dein Nachname" onkeydown="handleKeyPress(event)" style="color: whitesmoke"/>
+  </div>
   <p></p>
-  <button onclick="submitName()">Continue</button>
+  <button onclick="submitName()" style="color: #977A43">Öffnen</button>
 </div>
+
+<div class="centered-block">
+  <p id="error-message" style="display: none; color: #977A43; font-family: 'Arapey', serif; margin-top: 1rem;">
+  Fehler. Bitte kontaktiere Mimi oder Niko.
+  </p>
+</div>
+
 
 <div class="spacer"></div>
 
@@ -46,52 +55,97 @@
     window.location.href = `main.html?gst=${group}`; //
   }
 
+  // New data structure with tuples
+  const groups = {
+    // ToVaRi Groups
+    TVRi: [['jens', 'paar'], ['jens', 'paaar']],
+    TVRp: [['tvr', 'p']],
+    TVRc: [['tvr', 'c']],
+    TVRa: [['marie', 'gnott'], ['niko', 'arras']],
+
+    // Sopra Groups
+    SOPp: [['sop', 'p']],
+    SOPa: [['sop', 'a']],
+
+    // Cardeto Groups
+    CDOp: [['cdo', 'p']],
+    CDOa: [['cdo', 'a']],
+
+    // Self Booker Groups
+    SBK: [['sbk', 'n'], ['björn', 'dornbusch']],
+    SBKie: [['sbk', 'ie']],
+    SBKim: [['sbk', 'im']],
+    SBKic: [['sbk', 'ic']],
+    SBKe: [['sbk', 'e']],
+  };
+
   function submitName() {
     const vornameInput = document.getElementById('vorname');
     const nachnameInput = document.getElementById('nachname');
-    const name = `${vornameInput.value.trim().toLowerCase()} ${nachnameInput.value.trim().toLowerCase()}`;
-    if (!name) {
-      alert('Please enter your name.');
+    const lastNameContainer = document.getElementById('last-name-container');
+    const errorMessage = document.getElementById('error-message');
+
+    const vorname = vornameInput.value.trim().toLowerCase();
+    const nachname = nachnameInput.value.trim().toLowerCase();
+
+    // Check if the first name is empty
+    if (vorname === '') {
+      errorMessage.textContent = 'Bitte gib deinen Vornamen ein.';
+      errorMessage.style.display = 'block';
       return;
     }
 
-    const groups = {
-      // Tovari Groups
-      TVRi: ['tvr i', 'jens paar', 'selina paar'], // ToVaRi-internal : close f&f is invited to Tovari
-      TVRp: ['tvr p'], // ToVaRi-pay : people who are assigned to Tovari
-      TVRc: ['tvr c'], // ToVaRi-camper : people who are assigned to Tovari as camper
-      TVRa: ['tvr a', 'marie gnott', 'niko arras'], // ToVaRi-accept : people accepted RSVP
-
-      // Sopra Groups
-      SOPp: ['sop p'], // SOPra-pay : people who are assigned to Sopra
-      SOPa: ['sop a'], // SOPra-accept : people confirmed RSVP
-
-      // Cardeto Groups
-      CDOp: ['cdo p'], // CarDetO-pay : people who are assigned to Cardeto
-      CDOa: ['cdo a'], // CarDetO-accept : people confirmed RSVP
-
-      // Self Booker Groups
-      SBK: ['sbk n', 'björn dornbusch'], // SelfBooKer : people who are not assigned and need to self book
-      SBKie: ['sbk ie'], // SelfBooKer-internal-mezzo : people who have self booked on reserved MEZZO
-      SBKim: ['sbk im'], // SelfBooKer-internal-mezzo : people who have self booked on reserved MERIDIANA
-      SBKic: ['sbk ic'], // SelfBooKer-internal-mezzo : people who have self booked on reserved CIELO
-      SBKe: ['sbk e'], // SelfBooKer-external : people who have self booked on own accommodation
-
-    };
-
-    function getGroup(name) {
-      for (const [groupName, names] of Object.entries(groups)) {
-        if (names.includes(name)) return groupName;
+    let firstNames = [];
+    for (const group of Object.values(groups)) {
+      for (const nameTuple of group) {
+        firstNames.push(nameTuple[0]);
       }
-      return 'none';
     }
 
-    const group = getGroup(name);
+    const matchingNames = Object.values(groups).flat().filter(tuple => tuple[0] === vorname);
 
-    if (group !== 'none') {
-      localStorage.setItem('name', name);
-      localStorage.setItem('group', group);
-      window.location.href = `main.html?gst=${group}`;
+    // Case 1: Multiple first names match
+    if (matchingNames.length > 1) {
+      if (lastNameContainer.style.display === 'none') {
+        lastNameContainer.style.display = 'block';
+        errorMessage.textContent = 'Dein Name ist nicht eindeutig. Bitte gib auch deinen Nachnamen ein.';
+        errorMessage.style.display = 'block';
+        return;
+      }
+
+      // Case 2: Matching with last name
+      const fullMatch = matchingNames.find(tuple => tuple[1] === nachname);
+      if (fullMatch) {
+        const groupKey = Object.keys(groups).find(key => groups[key].includes(fullMatch));
+        if (groupKey) {
+          localStorage.setItem('name', `${vorname} ${nachname}`);
+          localStorage.setItem('group', groupKey);
+          window.location.href = `main.html?gst=${groupKey}`;
+        }
+      } else {
+        errorMessage.textContent = 'Fehler. Bitte kontaktiere Mimi oder Niko.';
+        errorMessage.style.display = 'block';
+      }
+    }
+    // Case 3: Single first name match
+    else if (matchingNames.length === 1) {
+      const groupKey = Object.keys(groups).find(key => groups[key].includes(matchingNames[0]));
+      if (groupKey) {
+        localStorage.setItem('name', `${vorname} ${matchingNames[0][1]}`);
+        localStorage.setItem('group', groupKey);
+        window.location.href = `main.html?gst=${groupKey}`;
+      }
+    }
+    // Case 4: No match at all
+    else {
+      errorMessage.textContent = 'Fehler. Bitte kontaktiere Mimi oder Niko.';
+      errorMessage.style.display = 'block';
+    }
+  }
+
+  function handleKeyPress(event) {
+    if (event.key === "Enter" || event.keyCode === 13) {
+      submitName();
     }
   }
 </script>
