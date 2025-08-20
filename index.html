@@ -58,7 +58,7 @@
   // New data structure with tuples
   const groups = {
     // ToVaRi Groups
-    TVRi: [['jens', 'paar'], ['jens', 'paaar']],
+    TVRi: [['jens', 'paar'], ['selina', 'paaar'] , ['stefan', 'arras']],
     TVRp: [['tvr', 'p']],
     TVRc: [['tvr', 'c']],
     TVRa: [['marie', 'gnott'], ['niko', 'arras']],
@@ -72,7 +72,7 @@
     CDOa: [['cdo', 'a']],
 
     // Self Booker Groups
-    SBK: [['sbk', 'n'], ['björn', 'dornbusch']],
+    SBK: [['sbk', 'n'], ['björn', 'dornbusch'], ['stefan', 'gramlich']],
     SBKie: [['sbk', 'ie']],
     SBKim: [['sbk', 'im']],
     SBKic: [['sbk', 'ic']],
@@ -108,7 +108,7 @@
     if (matchingNames.length > 1) {
       if (lastNameContainer.style.display === 'none') {
         lastNameContainer.style.display = 'block';
-        errorMessage.textContent = 'Dein Name ist nicht eindeutig. Bitte gib auch deinen Nachnamen ein.';
+        errorMessage.textContent = ' ';
         errorMessage.style.display = 'block';
         return;
       }
