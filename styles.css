@@ -433,6 +433,9 @@ ul.timeline li::before {
     }
 }
 @media (max-width: 576px) { /* Or 576px, 480px, whatever you define as "mobile like iPhone" */
+    .timeline-image-container {
+        display: none;
+    }
     .person-cards-wrapper {
         flex-direction: column; /* Stack them vertically */
         align-items: center; /* Center them when stacked */
