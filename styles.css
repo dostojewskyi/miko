@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    font-family: 'Arapey', serif;
+    font-family: 'Arapey', 'Arapey-Regular', serif;
     background-color: #F5DED6;
     color: #977A43;
     margin: 0;
@@ -11,8 +11,11 @@ body {
     line-height: 1.6;
 }
 
-#last-name-container {
-    display: none;
+footer {
+    text-align: center;
+    padding: 2em 1em;
+    font-size: 0.9em;
+    background: #F5DED6;
 }
 
 #schedule {
@@ -20,9 +23,21 @@ body {
     /* Other styles for your section can go here if needed. */
 }
 
+.container {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+.hidden { display: none; }
+
+.last-name-container {
+    display: none;
+}
+
 .error-message {
     color: #977A43;
-    font-family: 'Arapey', serif;
+    font-family: 'Arapey', 'Arapey-Regular', serif;
     margin-top: 1rem;
 }
 
@@ -43,12 +58,6 @@ body {
     transform: rotate(20deg);
 }
 
-
-.container {
-    max-width: 600px;
-    margin: auto;
-    text-align: center;
-}
 input {
     padding: 8px;
     font-size: 16px;
@@ -60,6 +69,7 @@ input {
     outline: none;            /* Kein Fokus-Ring beim Klicken */
     border-radius: 0;         /* Ecken nicht abgerundet (optional) */
 }
+
 button {
     padding: 10px 20px;
     font-size: 16px;
@@ -70,32 +80,37 @@ button {
     border-radius: 0;         /* Ecken nicht abgerundet (optional) */
     background: #CDAC8F;
 }
+
 header {
     text-align: center;
     padding: 3em 1em 1em;
     /*color: #E4CE7B; */
     color: #977A43;
 }
+
 header h1 {
     /*font-family: 'Great Vibes', cursive;*/
-    font-family: "Arapey", serif;
+    font-family: 'Arapey', 'Arapey-Regular', serif;
     color: #977A43;
     font-size: 4em;
     font-weight: 300;
     line-height: 1.1;
     margin: 5rem;
 }
+
 header h2 {
-    font-family: "Arapey", serif;
+    font-family: 'Arapey', 'Arapey-Regular', serif;
     color: #977A43;
     font-size: 3em;
     font-weight: 300;
     margin: 5rem;
 }
+
 header p {
     font-size: 1em;
     color: #666;
 }
+
 .centered-block {
     margin-left: auto;
     margin-right: auto;
@@ -132,7 +147,7 @@ section {
     padding: 0 1em;
 }
 .section-title {
-    font-family: "Arapey", serif;
+    font-family: 'Arapey', 'Arapey-Regular', serif;
     color: #977A43;
     font-size: 2em;
     font-weight: 300;
@@ -140,23 +155,17 @@ section {
     margin-bottom: 1em;
 }
 
-.date-image img {
-    width: 100px;   /* Größe anpassen */
-    height: auto;
-    right: 1px;
-    transform: rotate(20deg);
-}
-
 .timeline-date {
-    font-family: "Arapey", serif;
+    font-family: 'Arapey', 'Arapey-Regular', serif;
     color: #977A43;
     font-weight: 300;
     font-size: 1.5em;
     margin-bottom: 2rem;
     text-align: center;
 }
+
 .timeline-item {
-    font-family: 'Arapey', serif;
+    font-family: 'Arapey', 'Arapey-Regular', serif;
     color: #977A43;
     display: grid;
     grid-template-columns: 40px 80px 1fr;
@@ -164,6 +173,7 @@ section {
     position: relative;
     margin-bottom: 15px; /* Space between events within a group */
 }
+
 .timeline-bullet {
     width: 10px;
     height: 10px;
@@ -173,16 +183,18 @@ section {
     flex-shrink: 0; /* Prevent bullet from shrinking */
     z-index: 1; /* Ensure bullet is above the line */
 }
+
 .timeline-left {
-    font-family: 'Arapey', serif;
+    font-family: 'Arapey', 'Arapey-Regular', serif;
     color: #977A43;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .timeline-time {
-    font-family: 'Arapey', serif;
+    font-family: 'Arapey', 'Arapey-Regular', serif;
     color: #977A43;
     font-weight: 500;
     font-size: 1rem;
@@ -194,6 +206,7 @@ section {
     margin: 0 auto;
     padding: 2rem;
 }
+
 .timeline {
     list-style: none;
     display: flex;
@@ -201,6 +214,7 @@ section {
     gap: 2rem;
     padding: 0;
 }
+
 .timeline-line {
     flex-grow: 1;
     width: 2px;
@@ -212,11 +226,6 @@ section {
     background-color: transparent;
 }
 
-.timeline-event-text {
-    font-size: 1.5em;
-    color: #555;
-    margin: 0;
-}
 /* Line connecting events within a group */
 .timeline-group .timeline-item:not(:last-child)::after {
     content: '';
@@ -259,7 +268,7 @@ ul.timeline li::before {
 }
 /* Header Styles */
 .wedding-header h1 {
-    font-family: 'Arapey', serif; /* Example script font */
+    font-family: 'Arapey', 'Arapey-Regular', serif; /* Example script font */
     color: #977A43;
     font-size: 3.5em; /* Large size for the main title */
     margin-bottom: 10px;
@@ -306,7 +315,7 @@ ul.timeline li::before {
     display: block; /* Removes extra space below image */
 }
 .person-name {
-    font-family: 'Arapey', serif; /* Script font for names */
+    font-family: 'Arapey', 'Arapey-Regular', serif; /* Script font for names */
     font-size: 1.5em; /* Size for names */
     margin-top: 0;
     margin-bottom: 10px;
@@ -317,34 +326,6 @@ ul.timeline li::before {
     line-height: 1.5;
     max-width: 300px; /* Limit description width for readability */
     margin: 0 auto; /* Center description text within its card */
-}
-
-.corner-rgt-img {
-    position: fixed;
-    top: 1px;
-    right: 1px;
-    width: 200px;   /* Größe anpassen */
-    height: auto;  /* behält Seitenverhältnis */
-    z-index: 1000; /* liegt über anderem Inhalt */
-}
-
-.corner-lft-img {
-    position: fixed;
-    bottom: 1px;
-    left: 1px;
-    width: 200px;   /* Größe anpassen */
-    height: auto;  /* behält Seitenverhältnis */
-    z-index: 1000; /* liegt über anderem Inhalt */
-}
-
-.bottom-left {
-    text-align: left;   /* aligns image left */
-    margin: 20px;       /* some spacing */
-}
-
-.bottom-left img {
-    width: 200px;       /* scale size here */
-    height: auto;
 }
 
 .page-footer {
@@ -398,7 +379,7 @@ ul.timeline li::before {
     align-items: center;
     gap: 10px; /* Abstand zwischen Text und Bild */
     font-size: 1rem;
-    font-family: 'Arapey', serif;
+    font-family: 'Arapey', 'Arapey-Regular', serif;
     color: #977A43;
     padding-left: 0.5rem;
 }
@@ -457,25 +438,19 @@ ul.timeline li::before {
         font-size: 1.5em;
     }
 }
+
 @font-face {
-    font-family: 'Esthentic';
-    src: url('fonts/EsthenticDEMO.woff2') format('woff2'),
-    url('fonts/EsthenticDEMO.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Santorini';
-    src: url('fonts/SantoriniRegular.woff2') format('woff2'),
-    url('fonts/SantoriniRegular.woff') format('woff');
+    font-family: 'Arapey-Regular';
+    src: url('fonts/Arapey-Regular.woff2') format('woff2'),
+    url('fonts/Arapey-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
-footer {
-    text-align: center;
-    padding: 2em 1em;
-    font-size: 0.9em;
-    background: #F5DED6;
+@font-face {
+    font-family: 'Arapey-Italic';
+    src: url('fonts/Arapey-Italic.woff2') format('woff2'),
+    url('fonts/Arapey-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
-.hidden { display: none; }
